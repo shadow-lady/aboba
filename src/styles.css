@@ -1,12 +1,12 @@
 
 .l9-panel {
-  --bg: #0f0f0f;
-  --title: #292929;
-  --frame: #253b56;
-  --hover: #426b9b;
-  --active: #4287d9;
-  --text: #f5f5f5;
-  --muted: #808080;
+  --bg: #1e1e1e;
+  --title: #2b2b2b;
+  --frame: #111111;
+  --hover: #3d5d82;
+  --active: #4d79ad;
+  --text: #e8e8e8;
+  --muted: #a0a0a0;
 
   position: fixed;
   right: 24px;
@@ -16,11 +16,11 @@
 
   background: var(--bg);
   color: var(--text);
-  border: 1px solid #595965;
-  border-radius: 3px;
-  box-shadow: 0 8px 25px #0009;
+  border: 1px solid #454545;
+  border-radius: 4px;
+  box-shadow: 0 8px 24px #0008;
 
-  font: 13px Arial, sans-serif;
+  font: 13px "Segoe UI", Arial, sans-serif;
   overflow: hidden;
 }
 
@@ -30,11 +30,42 @@
 
 .l9-title {
   background: var(--title);
-  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 31px;
+  padding: 3px 5px 3px 10px;
   font-weight: bold;
   cursor: move;
   user-select: none;
   touch-action: none;
+}
+
+.l9-title-text {
+  flex: 1;
+}
+
+.l9-collapse {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  color: #bdbdbd !important;
+  font-size: 18px !important;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.l9-collapse:hover {
+  background: #ffffff20 !important;
+  color: #fff !important;
+}
+
+.l9-collapsed {
+  width: 220px;
 }
 
 .l9-body {
@@ -42,9 +73,9 @@
 }
 
 .l9-section {
-  border-bottom: 1px solid #555;
-  padding: 7px 0;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #383838;
+  padding: 6px 0;
+  margin-bottom: 7px;
   color: var(--text);
   font-weight: bold;
 }
@@ -53,7 +84,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 8px 0;
+  margin: 7px 0;
 }
 
 .l9-row label {
@@ -64,7 +95,7 @@
 .l9-panel textarea {
   width: 100%;
   background: var(--frame);
-  border: 1px solid transparent;
+  border: 1px solid #383838;
   border-radius: 2px;
   padding: 5px 7px;
   color: white;
@@ -83,7 +114,7 @@
 
 .l9-panel button {
   background: var(--frame);
-  border: 1px solid #526579;
+  border: 1px solid #4b4b4b;
   color: white;
   padding: 6px 12px;
   border-radius: 2px;
@@ -100,7 +131,7 @@
 }
 
 .l9-panel input[type="checkbox"] {
-  accent-color: #4287d9;
+  accent-color: #6c9bd2;
 }
 
 .l9-status {

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         L9 Plugins
 // @namespace    https://client.work-zilla.com/
-// @version      0.101.0
+// @version      0.102.0
 // @description  L9 automation toolkit
 // @match        https://client.work-zilla.com/*
 // @run-at       document-idle

@@ -4,9 +4,12 @@ function renderMenu(shadow) {
   panel.className = "l9-panel";
 
   panel.innerHTML = `
-    <div class="l9-title">L9 Plugins</div>
+    <div class="l9-title">
+      <span class="l9-title-text">L9 Plugins</span>
+      <button class="l9-collapse" type="button" aria-label="Collapse panel" aria-expanded="true" title="Collapse panel">−</button>
+    </div>
 
-    <div class="l9-body">
+    <div class="l9-body" id="panel-body">
       <div class="l9-section">Automation</div>
 
       <div class="l9-row">
@@ -40,6 +43,18 @@ function renderMenu(shadow) {
 
   const $ = id => panel.querySelector(`#${id}`);
 
+  const collapse = panel.querySelector(".l9-collapse");
+  const body = $("panel-body");
+  collapse.addEventListener("click", () => {
+    const isExpanded = collapse.getAttribute("aria-expanded") === "true";
+    collapse.setAttribute("aria-expanded", String(!isExpanded));
+    collapse.setAttribute("aria-label", isExpanded ? "Expand panel" : "Collapse panel");
+    collapse.title = isExpanded ? "Expand panel" : "Collapse panel";
+    collapse.textContent = isExpanded ? "+" : "−";
+    body.hidden = isExpanded;
+    panel.classList.toggle("l9-collapsed", isExpanded);
+  });
+
   $("execute").addEventListener("click", () => {
     $("status").textContent = "Demo action executed";
   });
@@ -49,7 +64,7 @@ function renderMenu(shadow) {
   let drag = null;
 
   title.addEventListener("pointerdown", e => {
-    if (e.button !== 0) return;
+    if (e.button !== 0 || e.target.closest("button")) return;
 
     const rect = panel.getBoundingClientRect();
 
