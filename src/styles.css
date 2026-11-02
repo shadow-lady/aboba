@@ -12,8 +12,8 @@
   right: 24px;
   bottom: 24px;
   width: 340px;
-  min-width: 260px;
-  min-height: 180px;
+  min-width: 320px;
+  min-height: 260px;
   max-width: calc(100vw - 16px);
   max-height: calc(100vh - 16px);
   resize: both;
@@ -27,6 +27,46 @@
 
   font: 13px "Segoe UI", Arial, sans-serif;
   overflow: hidden;
+}
+
+.l9-window {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+  min-width: 320px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.l9-window[hidden],
+.l9-launcher[hidden] {
+  display: none !important;
+}
+
+.l9-launcher {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 !important;
+  display: grid;
+  place-items: center;
+  border: 1px solid #626262 !important;
+  border-radius: 4px !important;
+  background: #000 !important;
+  color: var(--text) !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.l9-launcher:active {
+  cursor: grabbing;
 }
 
 .l9-panel * {
@@ -70,18 +110,21 @@
 }
 
 .l9-collapsed {
-  width: 220px;
-  height: auto !important;
-  min-height: 0 !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
   resize: none !important;
+  overflow: visible;
 }
 
 .l9-body {
   display: flex;
   flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
   padding: 10px;
-  height: calc(100% - 31px);
-  overflow: auto;
+  overflow: hidden;
 }
 
 .l9-tabs {
@@ -118,15 +161,21 @@
   min-height: 0;
 }
 
+#view-test {
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
 .l9-terminal-view {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 1 1 0;
+  height: 0;
   min-height: 0;
 }
 
 .l9-terminal-label {
-  color: #8d8d8d;
+  color: var(--muted);
   font: 10px Consolas, "Liberation Mono", monospace;
   letter-spacing: 0.08em;
   margin: 2px 0 6px;
@@ -137,14 +186,13 @@
   width: 100%;
   min-height: 0;
   resize: none;
-  background: #101312;
-  border: 1px solid #303b34;
-  border-radius: 3px;
-  color: #b9e6bf;
+  background: var(--frame);
+  border: 1px solid #383838;
+  border-radius: 2px;
+  color: var(--text);
   padding: 10px;
   font: 12px/1.5 Consolas, "Liberation Mono", monospace;
   tab-size: 2;
-  accent-color: var(--active);
   caret-color: var(--active);
   scrollbar-color: var(--active) #171717;
   selection-background-color: var(--active);
@@ -156,7 +204,7 @@
 }
 
 .l9-panel .l9-terminal:focus {
-  outline: 1px solid #53845c;
+  outline: 1px solid var(--active);
 }
 
 .l9-section {
