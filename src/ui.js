@@ -10,6 +10,12 @@ function renderMenu(shadow) {
     </div>
 
     <div class="l9-body" id="panel-body">
+      <div class="l9-tabs" role="tablist" aria-label="Panel views">
+        <button class="l9-tab l9-tab-active" id="tab-test" type="button" role="tab" aria-selected="true" aria-controls="view-test">Test</button>
+        <button class="l9-tab" id="tab-terminal" type="button" role="tab" aria-selected="false" aria-controls="view-terminal">Terminal</button>
+      </div>
+
+      <section class="l9-view" id="view-test" role="tabpanel" aria-labelledby="tab-test">
       <div class="l9-section">Automation</div>
 
       <div class="l9-row">
@@ -36,12 +42,28 @@ function renderMenu(shadow) {
 
       <button id="execute">Execute</button>
       <div class="l9-status" id="status">Ready</div>
+      </section>
+
+      <section class="l9-view l9-terminal-view" id="view-terminal" role="tabpanel" aria-labelledby="tab-terminal" hidden>
+        <div class="l9-terminal-label">OUTPUT</div>
+        <textarea class="l9-terminal" aria-label="Terminal" spellcheck="false" placeholder="Terminal output...">$ L9 Plugins terminal\nReady.</textarea>
+      </section>
     </div>
   `;
 
   shadow.appendChild(panel);
 
   const $ = id => panel.querySelector(`#${id}`);
+
+  const tabs = [...panel.querySelectorAll(".l9-tab")];
+  tabs.forEach(tab => tab.addEventListener("click", () => {
+    tabs.forEach(item => {
+      const selected = item === tab;
+      item.classList.toggle("l9-tab-active", selected);
+      item.setAttribute("aria-selected", String(selected));
+      panel.querySelector(`#${item.getAttribute("aria-controls")}`).hidden = !selected;
+    });
+  }));
 
   const collapse = panel.querySelector(".l9-collapse");
   const body = $("panel-body");

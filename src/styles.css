@@ -1,9 +1,9 @@
 
 .l9-panel {
-  --bg: #0000005d;
+  --bg: #000000af;
   --title: #00000099;
   --frame: #111111;
-  --hover: #426b9b;
+  --hover: #1d1d1d;
   --active: #4287d9;
   --text: #f5f5f5;
   --muted: #808080;
@@ -12,12 +12,17 @@
   right: 24px;
   bottom: 24px;
   width: 340px;
+  min-width: 260px;
+  min-height: 180px;
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+  resize: both;
   z-index: 2147483647;  
 
   background: var(--bg);
   color: var(--text);
   border: 1px solid #454545;
-  border-radius: 4px;
+  border-radius: 0px;
   box-shadow: 0 8px 24px #0008;
 
   font: 13px "Segoe UI", Arial, sans-serif;
@@ -70,6 +75,68 @@
 
 .l9-body {
   padding: 10px;
+  max-height: calc(100vh - 64px);
+  overflow: auto;
+}
+
+.l9-tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid #454545;
+  margin: -4px -4px 10px;
+}
+
+.l9-panel .l9-tab {
+  padding: 6px 12px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: #b8b8b8;
+}
+
+.l9-panel .l9-tab:hover {
+  background: #ffffff12;
+  color: #fff;
+}
+
+.l9-panel .l9-tab-active {
+  border-bottom-color: #6c9bd2;
+  color: #fff;
+}
+
+.l9-view[hidden] {
+  display: none;
+}
+
+.l9-terminal-view {
+  display: flex;
+  flex-direction: column;
+  min-height: 180px;
+}
+
+.l9-terminal-label {
+  color: #8d8d8d;
+  font: 10px Consolas, "Liberation Mono", monospace;
+  letter-spacing: 0.08em;
+  margin: 2px 0 6px;
+}
+
+.l9-panel .l9-terminal {
+  flex: 1;
+  min-height: 150px;
+  resize: none;
+  background: #101312;
+  border: 1px solid #303b34;
+  border-radius: 3px;
+  color: #b9e6bf;
+  padding: 10px;
+  font: 12px/1.5 Consolas, "Liberation Mono", monospace;
+  tab-size: 2;
+}
+
+.l9-panel .l9-terminal:focus {
+  outline: 1px solid #53845c;
 }
 
 .l9-section {
@@ -131,7 +198,7 @@
 }
 
 .l9-panel input[type="checkbox"] {
-  accent-color: #6c9bd2;
+  accent-color: #ffffff;
 }
 
 .l9-status {
