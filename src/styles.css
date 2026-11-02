@@ -1,19 +1,110 @@
-.panel {
-  width: 300px;
-  padding: 20px;
-  background: white;
-  color: #1f2937;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  font-family: system-ui, sans-serif;
+
+.l9-panel {
+  --bg: #0f0f0f;
+  --title: #292929;
+  --frame: #253b56;
+  --hover: #426b9b;
+  --active: #4287d9;
+  --text: #f5f5f5;
+  --muted: #808080;
+
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 340px;
+  z-index: 2147483647;
+
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid #595965;
+  border-radius: 3px;
+  box-shadow: 0 8px 25px #0009;
+
+  font: 13px Arial, sans-serif;
+  overflow: hidden;
 }
 
-.panel button {
-  padding: 10px 16px;
-  background: #2563eb;
+.l9-panel * {
+  box-sizing: border-box;
+}
+
+.l9-title {
+  background: var(--title);
+  padding: 8px 10px;
+  font-weight: bold;
+  cursor: move;
+  user-select: none;
+  touch-action: none;
+}
+
+.l9-body {
+  padding: 10px;
+}
+
+.l9-section {
+  border-bottom: 1px solid #555;
+  padding: 7px 0;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.l9-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.l9-row label {
+  flex: 0 0 90px;
+}
+
+.l9-panel input[type="text"],
+.l9-panel textarea {
+  width: 100%;
+  background: var(--frame);
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 5px 7px;
   color: white;
-  border: none;
-  border-radius: 6px;
+  font: inherit;
+}
+
+.l9-panel textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.l9-panel input:focus,
+.l9-panel textarea:focus {
+  outline: 1px solid var(--active);
+}
+
+.l9-panel button {
+  background: var(--frame);
+  border: 1px solid #526579;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font: inherit;
   cursor: pointer;
+}
+
+.l9-panel button:hover {
+  background: var(--hover);
+}
+
+.l9-panel button:active {
+  background: var(--active);
+}
+
+.l9-panel input[type="checkbox"] {
+  accent-color: #4287d9;
+}
+
+.l9-status {
+  color: var(--muted);
+  font-size: 12px;
+  padding-top: 8px;
 }
