@@ -46,7 +46,7 @@ function renderMenu(shadow) {
 
       <section class="l9-view l9-terminal-view" id="view-terminal" role="tabpanel" aria-labelledby="tab-terminal" hidden>
         <div class="l9-terminal-label">OUTPUT</div>
-        <textarea class="l9-terminal" aria-label="Terminal" spellcheck="false" placeholder="Terminal output...">$ L9 Plugins terminal\nReady.</textarea>
+        <textarea class="l9-terminal" aria-label="Terminal" spellcheck="false" placeholder="Terminal output...">If you read this - you are noob.</textarea>
       </section>
     </div>
   `;
@@ -75,6 +75,14 @@ function renderMenu(shadow) {
     collapse.textContent = isExpanded ? "+" : "−";
     body.hidden = isExpanded;
     panel.classList.toggle("l9-collapsed", isExpanded);
+    if (isExpanded) {
+      panel.style.height = "auto";
+      panel.style.minHeight = "0";
+      panel.style.resize = "none";
+    } else {
+      panel.style.minHeight = "180px";
+      panel.style.resize = "both";
+    }
   });
 
   $("execute").addEventListener("click", () => {

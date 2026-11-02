@@ -71,11 +71,16 @@
 
 .l9-collapsed {
   width: 220px;
+  height: auto !important;
+  min-height: 0 !important;
+  resize: none !important;
 }
 
 .l9-body {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  max-height: calc(100vh - 64px);
+  height: calc(100% - 31px);
   overflow: auto;
 }
 
@@ -109,10 +114,15 @@
   display: none;
 }
 
+.l9-view {
+  min-height: 0;
+}
+
 .l9-terminal-view {
   display: flex;
   flex-direction: column;
-  min-height: 180px;
+  flex: 1;
+  min-height: 0;
 }
 
 .l9-terminal-label {
@@ -124,7 +134,8 @@
 
 .l9-panel .l9-terminal {
   flex: 1;
-  min-height: 150px;
+  width: 100%;
+  min-height: 0;
   resize: none;
   background: #101312;
   border: 1px solid #303b34;
@@ -133,6 +144,15 @@
   padding: 10px;
   font: 12px/1.5 Consolas, "Liberation Mono", monospace;
   tab-size: 2;
+  accent-color: var(--active);
+  caret-color: var(--active);
+  scrollbar-color: var(--active) #171717;
+  selection-background-color: var(--active);
+}
+
+.l9-panel .l9-terminal::selection {
+  background: var(--active);
+  color: #fff;
 }
 
 .l9-panel .l9-terminal:focus {
