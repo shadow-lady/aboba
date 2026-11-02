@@ -1,18 +1,18 @@
 
 .l9-panel {
-  --bg: #1e1e1e;
-  --title: #2b2b2b;
+  --bg: #0000005d;
+  --title: #00000099;
   --frame: #111111;
-  --hover: #3d5d82;
-  --active: #4d79ad;
-  --text: #e8e8e8;
-  --muted: #a0a0a0;
+  --hover: #426b9b;
+  --active: #4287d9;
+  --text: #f5f5f5;
+  --muted: #808080;
 
   position: fixed;
   right: 24px;
   bottom: 24px;
   width: 340px;
-  z-index: 2147483647;
+  z-index: 2147483647;  
 
   background: var(--bg);
   color: var(--text);
